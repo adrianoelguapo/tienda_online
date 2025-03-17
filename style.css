@@ -1,0 +1,33 @@
+/* --- Importar fuente(s) --- */
+@font-face{
+    font-family: 'the-seasons';
+    src: url('fonts/the-seasons-regular.otf');
+}
+
+/* --- Estilos generales --- */
+
+/* --- Esilos para la barra de navegación (cabecera) --- */
+.navbar{
+    position: relative;
+}
+
+.navbar-container{
+    width: 95%;
+}
+
+.main-navbar-brand,
+.offcanvas-title{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'the-seasons';
+    font-size: 35px;
+}
+
+.nav-item{
+    font-variant: small-caps;
+}
+
+.offcanvas-icons{
+    margin-left: 5%;
+}
