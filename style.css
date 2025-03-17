@@ -1,7 +1,14 @@
 /* --- Importar fuente(s) --- */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 @font-face{
     font-family: 'the-seasons';
     src: url('fonts/the-seasons-regular.otf');
+}
+
+@font-face{
+    font-family: 'the-seasons-light';
+    src: url('fonts/the-seasons-light.otf');
 }
 
 /* --- Estilos generales --- */
@@ -9,6 +16,8 @@
 /* --- Esilos para la barra de navegación (cabecera) --- */
 .navbar{
     position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .navbar-container{
@@ -21,13 +30,164 @@
     left: 50%;
     transform: translateX(-50%);
     font-family: 'the-seasons';
-    font-size: 35px;
+    font-size: 2.5rem;
+    font-variant: small-caps;
 }
 
 .nav-item{
     font-variant: small-caps;
+    font-family: "Raleway", sans-serif;
+    font-size: 0.9rem;
+}
+
+.offcanvas-header{
+    padding-top: 7%;
+    padding-bottom: 5%;
 }
 
 .offcanvas-icons{
     margin-left: 5%;
+}
+
+/* --- Estilos para la página principal (index.html) --- */
+.home-main{
+    border-top: solid 1px gray;
+    border-bottom: solid 1px gray;
+    background-image: url('images/home-main-photo.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.home-main-title{
+    font-family: 'the-seasons-light';
+    font-size: 3rem;
+    color: white;
+    margin-top: 25rem;
+    margin-left: 2rem;
+}
+
+.home-main-text{
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: gray;
+    margin-left: 2rem;
+    margin-top: -1rem;
+}
+
+#home-main-shop-btn{
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    border: none;
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.8rem;
+    transition: all 0.3s ease-in;
+}
+
+#home-main-shop-btn:hover{
+    background-color: rgb(212, 212, 212);
+    transform: scale(1.05);
+}
+
+.home-first-section-title,
+.home-second-section-title{
+    font-family: 'the-seasons-light';
+    font-size: 2.5rem;
+}
+
+.home-first-section-subtitle,
+.home-second-section-subtitle{
+    font-family: 'Raleway';
+    font-size: 1rem;
+    margin-top: -0.5%;
+    font-variant: small-caps;
+}
+
+.home-first-section-item-img{
+    height: 35rem;
+    width: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease-in;
+    box-shadow: 0rem 0rem 0.75rem rgba(0,0,0,0.75);
+}
+
+.home-first-section-item-desc{
+    display: inline-block;
+    font-family: 'Raleway';
+    font-size: 0.965rem;
+    color: gray;
+    font-variant: small-caps;
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    margin-top: 1.5%;
+}
+
+.home-first-section-item-desc:hover{
+    color: black;
+    transform: scale(1.025);
+    border-bottom-color: black;
+}
+
+.home-second-section{
+    background-color: #dfdfdf;
+}
+
+.item-card-container{
+    width: 25rem;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin: 1rem auto 2rem auto;
+    position: relative;
+    text-align: left;
+}
+
+.item-card-img{
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 1rem; 
+    object-fit: cover;
+}
+
+.item-card-title{
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 0.5rem;
+}
+
+.item-card-price{
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.item-card-btn{
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.85rem;
+    transition: background-color 0.3s ease-in;
+    border: none;
+}
+
+.item-card-btn:hover {
+    background-color: #333;
+}
+
+.item-card-badge {
+    font-size: 0.75rem;
+    border-radius: 0px;
+    font-family: 'Raleway';
+    font-weight: 500;
 }
