@@ -17,7 +17,7 @@
 .navbar{
     position: relative;
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    padding-bottom: 1rem;
 }
 
 .navbar-container{
@@ -57,12 +57,13 @@
 }
 
 .prefooter-section-container{
-    padding-top: 10%;
-    padding-bottom: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 .prefooter-section-title{
     font-family: 'the-seasons-light';
+    font-variant: small-caps;
     color: white;
     font-size: 4rem;
 }
@@ -109,8 +110,6 @@
 
 /* --- Estilos para la página principal (index.html) --- */
 .home-main{
-    border-top: solid 1px black;
-    border-bottom: solid 1px black;
     background-image: url('images/home-main-photo.jpeg');
     background-size: cover;
     background-position: center;
@@ -250,4 +249,63 @@
     border-radius: 0px;
     font-family: 'Raleway';
     font-weight: 500;
+}
+
+/* --- Estilos para la página de login (login.html) --- */
+.login-container{
+    box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.15);
+    padding: 2rem;
+}
+
+.login-title{
+    font-family: 'the-seasons-light';
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.login-link{
+    font-family: 'Raleway';
+    display: inline-block;
+    border-bottom: solid 1px black;
+    transition: all 0.3s ease;
+}
+
+.login-link:hover{
+    transform: scale(1.05);
+}
+
+.login-text{
+    font-variant: small-caps;
+}
+
+.login-form label{
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    font-variant: small-caps;
+    margin-bottom: 0.5rem;
+}
+
+.login-form .form-control{
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    border-radius: 0;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    margin-bottom: 1rem;
+}
+
+.login-form button{
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.85rem;
+    font-variant: small-caps;
+    transition: all 0.3s ease-in;
+    border-radius: 0px;
+}
+
+.login-form button:hover{
+    background-color: #333;
+}
+
+.login-form a.text-decoration-none:hover{
+    text-decoration: underline;
 }
