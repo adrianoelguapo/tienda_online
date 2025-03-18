@@ -49,10 +49,68 @@
     margin-left: 5%;
 }
 
+/* --- Estilos para la sección previa al footer --- */
+.prefooter-section{
+    background-image: url('images/prefooter-section-photo.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.prefooter-section-container{
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.prefooter-section-title{
+    font-family: 'the-seasons-light';
+    color: white;
+    font-size: 4rem;
+}
+
+.prefooter-section-desc{
+    font-family: 'Raleway';
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 300;
+    width: 80%;
+}
+
+/* --- Estilos para el pie de página --- */
+.footer{
+    background-color: white;
+    color: black;
+    border-top: solid 1px rgb(206, 204, 204);
+}
+
+.footer-brand{
+    font-family: 'the-seasons';
+    font-size: 2rem;
+}
+  
+.footer h5{
+    margin-bottom: 1.5rem;
+    font-family: 'the-seasons-light';
+    font-variant: small-caps;
+}
+
+.footer p,
+.footer ul{
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    font-size: 0.9rem;
+    font-variant: small-caps;
+    border-bottom: solid 1px transparent;
+    transition: all 0.3s ease;
+}
+
+.footer a:hover{
+    border-bottom-color: white;
+}
+
 /* --- Estilos para la página principal (index.html) --- */
 .home-main{
-    border-top: solid 1px gray;
-    border-bottom: solid 1px gray;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
     background-image: url('images/home-main-photo.jpeg');
     background-size: cover;
     background-position: center;
@@ -139,7 +197,7 @@
 .item-card-container{
     width: 25rem;
     background-color: white;
-    border: 1px solid #ccc;
+    box-shadow: 0rem 0rem 1rem rgba(0,0,0,0.4);
     padding: 1rem;
     margin: 1rem auto 2rem auto;
     position: relative;
@@ -160,6 +218,7 @@
     font-weight: 600;
     color: #000;
     margin-bottom: 0.5rem;
+    font-variant: small-caps;
 }
 
 .item-card-price{
@@ -177,15 +236,16 @@
     text-decoration: none;
     font-family: 'Raleway', sans-serif;
     font-size: 0.85rem;
+    font-variant: small-caps;
     transition: background-color 0.3s ease-in;
     border: none;
 }
 
-.item-card-btn:hover {
+.item-card-btn:hover{
     background-color: #333;
 }
 
-.item-card-badge {
+.item-card-badge{
     font-size: 0.75rem;
     border-radius: 0px;
     font-family: 'Raleway';
