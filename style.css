@@ -49,7 +49,82 @@
     margin-left: 5%;
 }
 
-/* --- Estilos para la sección previa al footer --- */
+/* --- Estilos para la sección de más vendidos --- */
+.best-sellers-section{
+    background-color: #dfdfdf;
+}
+
+.best-sellers-section-title{
+    font-family: 'the-seasons-light';
+    font-size: 2.5rem;
+}
+
+.best-sellers-section-subtitle{
+    font-family: 'Raleway';
+    font-size: 1rem;
+    margin-top: -0.5%;
+    font-variant: small-caps;
+}
+
+.item-card-container{
+    width: 25rem;
+    background-color: white;
+    box-shadow: 0rem 0rem 1rem rgba(0,0,0,0.4);
+    padding: 1rem;
+    margin: 1rem auto 2rem auto;
+    position: relative;
+    text-align: left;
+}
+
+.item-card-img{
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 1rem; 
+    object-fit: cover;
+}
+
+.item-card-title{
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 0.5rem;
+    font-variant: small-caps;
+}
+
+.item-card-price{
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.item-card-btn{
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.85rem;
+    font-variant: small-caps;
+    transition: background-color 0.3s ease-in;
+    border: none;
+}
+
+.item-card-btn:hover{
+    background-color: #333;
+}
+
+.item-card-badge{
+    font-size: 0.75rem;
+    border-radius: 0px;
+    font-family: 'Raleway';
+    font-weight: 500;
+}
+
+/* --- Estilos para la sección previa al pie de página --- */
 .prefooter-section{
     background-image: url('images/prefooter-section-photo.jpg');
     background-size: cover;
@@ -149,14 +224,12 @@
     transform: scale(1.05);
 }
 
-.home-first-section-title,
-.home-second-section-title{
+.home-first-section-title{
     font-family: 'the-seasons-light';
     font-size: 2.5rem;
 }
 
-.home-first-section-subtitle,
-.home-second-section-subtitle{
+.home-first-section-subtitle{
     font-family: 'Raleway';
     font-size: 1rem;
     margin-top: -0.5%;
@@ -187,68 +260,6 @@
     color: black;
     transform: scale(1.025);
     border-bottom-color: black;
-}
-
-.home-second-section{
-    background-color: #dfdfdf;
-}
-
-.item-card-container{
-    width: 25rem;
-    background-color: white;
-    box-shadow: 0rem 0rem 1rem rgba(0,0,0,0.4);
-    padding: 1rem;
-    margin: 1rem auto 2rem auto;
-    position: relative;
-    text-align: left;
-}
-
-.item-card-img{
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 1rem; 
-    object-fit: cover;
-}
-
-.item-card-title{
-    font-family: 'Raleway', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #000;
-    margin-bottom: 0.5rem;
-    font-variant: small-caps;
-}
-
-.item-card-price{
-    font-family: 'Raleway', sans-serif;
-    font-size: 0.9rem;
-    color: #555;
-    margin-bottom: 1rem;
-}
-
-.item-card-btn{
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: #000;
-    color: #fff;
-    text-decoration: none;
-    font-family: 'Raleway', sans-serif;
-    font-size: 0.85rem;
-    font-variant: small-caps;
-    transition: background-color 0.3s ease-in;
-    border: none;
-}
-
-.item-card-btn:hover{
-    background-color: #333;
-}
-
-.item-card-badge{
-    font-size: 0.75rem;
-    border-radius: 0px;
-    font-family: 'Raleway';
-    font-weight: 500;
 }
 
 /* --- Estilos para la página de login (login.html) --- */
