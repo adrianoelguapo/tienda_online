@@ -409,7 +409,7 @@
 }
 
 /* --- Estilos para la página de la tienda (products.html) --- */
-.products-heading {
+.products-heading{
     font-family: 'the-seasons-light';
     font-size: 2rem;
     font-variant: small-caps;
@@ -417,7 +417,7 @@
 
 .products-filter-bar p,
 .products-filter-bar button,
-.products-filter-bar .dropdown-menu a {
+.products-filter-bar .dropdown-menu a{
     font-family: 'Raleway', sans-serif;
     font-size: 0.9rem;
     font-variant: small-caps;
@@ -429,4 +429,11 @@
   font-family: 'Raleway', sans-serif;
   font-size: 0.9rem;
   font-variant: small-caps;
+  border-radius: 0px;
+}
+
+/* --- Estilos para la página de favoritos (favs.html) --- */
+.favs-main-title{
+    font-family: 'the-seasons-light';
+    font-size: 2.5rem;
 }
