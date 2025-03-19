@@ -68,18 +68,21 @@
 
 /* --- Estilos para las cartas de los productos --- */
 .item-card-container{
-    width: 25rem;
+    width: 100%;
+    max-width: 25rem;
     background-color: white;
-    box-shadow: 0rem 0rem 1rem rgba(0,0,0,0.4);
+    box-shadow: 0 0 1rem rgba(0,0,0,0.4);
     padding: 1rem;
     margin: 1rem auto 2rem auto;
     position: relative;
     text-align: left;
-    transition: all 0.3s ease-in;
+    transition: transform 0.3s ease-in;
 }
 
 .item-card-container:hover{
     transform: scale(1.025);
+    transform: scale(1.025);
+    z-index: 10;
 }
 
 .item-card-img{
