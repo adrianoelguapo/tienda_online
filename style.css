@@ -11,8 +11,6 @@
     src: url('fonts/the-seasons-light.otf');
 }
 
-/* --- Estilos generales --- */
-
 /* --- Esilos para la barra de navegación (cabecera) --- */
 .navbar{
     position: relative;
@@ -81,8 +79,6 @@
 
 .item-card-container:hover{
     transform: scale(1.025);
-    transform: scale(1.025);
-    z-index: 10;
 }
 
 .item-card-img{
@@ -118,7 +114,7 @@
     font-family: 'Raleway';
     font-size: 0.85rem;
     font-variant: small-caps;
-    transition: background-color 0.3s ease-in;
+    transition: all 0.3s ease-in;
     border: none;
 }
 
@@ -280,7 +276,7 @@
     border-bottom-color: black;
 }
 
-/* --- Estilos para la página de login (login.html) --- */
+/* --- Estilos para la página de login (login.php) --- */
 .login-container{
     box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.15);
     padding: 2rem;
@@ -432,13 +428,13 @@
   border-radius: 0px;
 }
 
-/* --- Estilos para la página de favoritos (favs.html) --- */
+/* --- Estilos para la página de favoritos (favs.php) --- */
 .favs-main-title{
     font-family: 'the-seasons-light';
     font-size: 2.5rem;
 }
 
-/* --- Estilos para la página del carrito (cart.html) --- */
+/* --- Estilos para la página del carrito (cart.php) --- */
 .cart-main{
     min-height: 90vh;
     font-family: 'Raleway';
@@ -534,4 +530,75 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+}
+
+/* --- Estilos para el perfil de usuario (profile.php) --- */
+.profile-main{
+    padding: 1rem 0;
+}
+
+.profile-main .container{
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.profile-main-title{
+    font-family: 'the-seasons-light';
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.profile-form {
+    max-width: 70%;
+    margin: 0 auto;
+    display: block;
+    text-align: left;
+}
+
+.profile-form .form-label{
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    font-variant: small-caps;
+}
+
+.profile-form .form-control{
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    border-radius: 0;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.profile-form button{
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.85rem;
+    font-variant: small-caps;
+    background-color: black;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease-in;
+    border-radius: 0px;
+}
+
+.profile-form button:hover{
+    background-color: #333;
+}
+
+.profile-form a.btn-link{
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-variant: small-caps;
+    color: black;
+    border: solid 1px black;
+    border-radius: 0px;
+    font-weight: 500;
+}
+
+.profile-form a.btn-link:hover{
+    color: gray;
+    border-color: gray;
 }
