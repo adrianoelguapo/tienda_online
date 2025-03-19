@@ -94,7 +94,7 @@
 }
 
 .item-card-title{
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway';
     font-size: 1rem;
     font-weight: 600;
     color: #000;
@@ -103,7 +103,7 @@
 }
 
 .item-card-price{
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway';
     font-size: 0.9rem;
     color: #555;
     margin-bottom: 1rem;
@@ -115,7 +115,7 @@
     background-color: #000;
     color: #fff;
     text-decoration: none;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway';
     font-size: 0.85rem;
     font-variant: small-caps;
     transition: background-color 0.3s ease-in;
@@ -308,14 +308,14 @@
 }
 
 .login-form label{
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway';
     font-size: 0.9rem;
     font-variant: small-caps;
     margin-bottom: 0.5rem;
 }
 
 .login-form .form-control{
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway';
     font-size: 0.9rem;
     border-radius: 0;
     border: 1px solid #ccc;
@@ -324,7 +324,7 @@
 }
 
 .login-form button{
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway';
     font-size: 0.85rem;
     font-variant: small-caps;
     transition: all 0.3s ease-in;
@@ -418,7 +418,7 @@
 .products-filter-bar p,
 .products-filter-bar button,
 .products-filter-bar .dropdown-menu a{
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway';
     font-size: 0.9rem;
     font-variant: small-caps;
     border-radius: 0px
@@ -426,7 +426,7 @@
 
 .products-filter-bar .dropdown-toggle,
 .products-filter-bar .dropdown-item{
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway';
   font-size: 0.9rem;
   font-variant: small-caps;
   border-radius: 0px;
@@ -436,4 +436,102 @@
 .favs-main-title{
     font-family: 'the-seasons-light';
     font-size: 2.5rem;
+}
+
+/* --- Estilos para la página del carrito (cart.html) --- */
+.cart-main{
+    min-height: 90vh;
+    font-family: 'Raleway';
+}
+
+.cart-page-title{
+    font-family: 'the-seasons-light';
+    font-size: 1.8rem;
+}
+
+.cart-continue-btn{
+    font-variant: small-caps;
+    border-radius: 0px;
+    border: solid 1px black;
+    background-color: white;
+    transition: all 0.3s ease-in;
+}
+
+.cart-continue-btn:hover{
+    font-variant: small-caps;
+    border-radius: 0px;
+    border: solid 1px black;
+    background-color: white;
+    transform: scale(1.05);
+}
+
+.cart-total-label{
+    font-family: 'Raleway';
+    font-size: 1rem;
+    font-weight: 500;
+    margin-right: 1rem;
+}
+
+.cart-total-amount{
+    font-family: 'Raleway';
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.cart-item-img{
+    max-width: 100px;
+    object-fit: cover;
+}
+
+.cart-item-title{
+    font-family: 'Raleway';
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.cart-item-details{
+    font-size: 0.85rem;
+}
+
+.cart-item-price{
+    font-family: 'Raleway';
+    font-weight: 500;
+    font-size: 1rem;
+    color: #333;
+}
+
+.cart-item-qty{
+    width: 50px;
+}
+
+.cart-item-remove{
+    font-size: 0.9rem;
+    text-decoration: underline;
+    padding: 0;
+}
+
+.cart-notes-label{
+    font-variant: small-caps;
+}
+
+.cart-notes-textarea{
+    border-radius: 0;
+}
+
+.cart-checkout-btn{
+    font-variant: small-caps;
+    border-radius: 0;
+    font-family: 'Raleway';
+    border: none;
+    transition: all 0.3s ease-in;
+}
+
+.cart-checkout-btn:hover{
+    background-color: rgb(61, 61, 61);
+}
+
+.cart-summary{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
