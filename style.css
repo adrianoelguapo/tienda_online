@@ -130,6 +130,15 @@
     font-weight: 500;
 }
 
+.bi-heart{
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+
+.bi-heart:hover{
+    transform: scale(1.2);
+}
+
 /* --- Estilos para la sección previa al pie de página --- */
 .prefooter-section{
     background-image: url('images/prefooter-section-photo.jpg');
@@ -394,4 +403,27 @@
     .story-section-container{
         width: 90% !important;
     }
+}
+
+/* --- Estilos para la página de la tienda (products.html) --- */
+.products-heading {
+    font-family: 'the-seasons-light';
+    font-size: 2rem;
+    font-variant: small-caps;
+}
+
+.products-filter-bar p,
+.products-filter-bar button,
+.products-filter-bar .dropdown-menu a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    font-variant: small-caps;
+    border-radius: 0px
+}
+
+.products-filter-bar .dropdown-toggle,
+.products-filter-bar .dropdown-item{
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9rem;
+  font-variant: small-caps;
 }
