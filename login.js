@@ -20,6 +20,8 @@ $(document).ready(function(){
           console.error('Error: ' + textStatus, errorThrown);
         }
       });
+
     });
+    
   });
   

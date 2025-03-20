@@ -21,7 +21,6 @@
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang = "en">
 
@@ -89,7 +88,7 @@
 
                             <a class = "navbar-brand" href = "login.php"><i class = "bi bi-person"></i></a>
                             <a class = "navbar-brand" href = "favs.php"><i class = "bi bi-heart"></i></a>
-                            <a class = "navbar-brand" href = "cart.html"><i class = "bi bi-bag"></i></a>
+                            <a class = "navbar-brand" href = "cart.php"><i class = "bi bi-bag"></i></a>
 
                         </div>
 
@@ -137,9 +136,8 @@
 
                             <ul class = "dropdown-menu dropdown-menu-end">
 
-                            <li><a class = "dropdown-item" href = "?filter=<?php echo isset($_GET['filter']) ? $_GET['filter'] : 'all';?>&sort=asc">Price: Low to High</a></li>
-                            <li><a class = "dropdown-item" href = "?filter=<?php echo isset($_GET['filter']) ? $_GET['filter'] : 'all';?>&sort=desc">Price: High to Low</a></li>
-
+                                <li><a class = "dropdown-item" href = "?filter=<?php echo isset($_GET['filter']) ? $_GET['filter'] : 'all';?>&sort=asc">Price: Low to High</a></li>
+                                <li><a class = "dropdown-item" href = "?filter=<?php echo isset($_GET['filter']) ? $_GET['filter'] : 'all';?>&sort=desc">Price: High to Low</a></li>
 
                             </ul>
 
@@ -175,7 +173,7 @@
 
                                 <p class = "item-card-title"><?php echo $product['name'];?></p>
                                 <p class = "item-card-price">$<?php echo $product['price'];?></p>
-                                <a href = "product.php" class = "item-card-btn">View Product</a>
+                                <a href = "view-product.php?id=<?php echo $product['_id']; ?>" class = "item-card-btn">View Product</a>
 
                             </div>
 
