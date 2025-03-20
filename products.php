@@ -155,7 +155,7 @@
 
                 <div class = "row">
 
-                    <?php foreach($products as $product): ?>
+                    <?php foreach($products as $product):?>
 
                         <div class = "col-12 col-md-4 mb-4">
 
@@ -163,19 +163,19 @@
 
                                 <div class = "position-relative">
 
-                                    <img src = "<?php echo $product['photo']; ?>" alt = "<?php echo $product['name']; ?>" class = "item-card-img w-100">
+                                    <img src = "<?php echo $product['photo'];?>" alt = "<?php echo $product['name'];?>" class = "item-card-img w-100">
 
                                     <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">
 
-                                        <?php echo ((int)$product['stock'] > 0) ? "AVAILABLE NOW" : "NO STOCK"; ?>
+                                        <?php echo ((int)$product['stock'] > 0) ? "AVAILABLE NOW" : "NO STOCK";?>
 
                                     </span>
 
                                 </div>
 
-                                <p class = "item-card-title"><?php echo $product['name']; ?></p>
-                                <p class = "item-card-price">$<?php echo $product['price']; ?></p>
-                                <a href = "#" class = "item-card-btn">View Product</a>
+                                <p class = "item-card-title"><?php echo $product['name'];?></p>
+                                <p class = "item-card-price">$<?php echo $product['price'];?></p>
+                                <a href = "product.php" class = "item-card-btn">View Product</a>
 
                             </div>
 

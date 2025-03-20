@@ -1,36 +1,38 @@
 <?php
-session_start();
-header('Content-Type: application/json');
 
-if (!isset($_SESSION['username'])) {
-    echo json_encode(['success' => false, 'error' => 'Not authenticated']);
-    exit;
-}
+    session_start();
+    header('Content-Type: application/json');
 
-require 'vendor/autoload.php';
+    if (!isset($_SESSION['username'])) {
+        echo json_encode(['success' => false, 'error' => 'Not authenticated']);
+        exit;
+    }
 
-$currentUsername = $_SESSION['username'];
-$newUsername = $_POST['username'];
-$newPassword = $_POST['password'];
+    require 'vendor/autoload.php';
 
-$mongoClient = new MongoDB\Client("mongodb+srv://admin:123@cluster0.tz018.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
-$db = $mongoClient->tienda_online;
-$collection = $db->users;
+    $currentUsername = $_SESSION['username'];
+    $newUsername = $_POST['username'];
+    $newPassword = $_POST['password'];
 
-$updateFields = ['username' => $newUsername];
-if (!empty($newPassword)) {
-    $updateFields['password'] = $newPassword;
-}
+    $mongoClient = new MongoDB\Client("mongodb+srv://admin:123@cluster0.tz018.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+    $db = $mongoClient->tienda_online;
+    $collection = $db->users;
 
-$result = $collection->updateOne(
-    ['username' => $currentUsername],
-    ['$set' => $updateFields]
-);
+    $updateFields = ['username' => $newUsername];
+    if (!empty($newPassword)) {
+        $updateFields['password'] = $newPassword;
+    }
 
-if ($result->getModifiedCount() > 0) {
-    $_SESSION['username'] = $newUsername;
-    echo json_encode(['success' => true]);
-} else {
-    echo json_encode(['success' => false, 'error' => 'Update failed or no changes made']);
-}
+    $result = $collection->updateOne(
+        ['username' => $currentUsername],
+        ['$set' => $updateFields]
+    );
+
+    if ($result->getModifiedCount() > 0) {
+        $_SESSION['username'] = $newUsername;
+        echo json_encode(['success' => true]);
+    } else {
+        echo json_encode(['success' => false, 'error' => 'Update failed or no changes made']);
+    }
+    
 ?>
