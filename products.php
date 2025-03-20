@@ -1,3 +1,27 @@
+<?php
+
+    session_start();
+    require 'vendor/autoload.php';
+    $mongoClient = new MongoDB\Client("mongodb+srv://admin:123@cluster0.tz018.mongodb.net/?retryWrites=true&w=majority");
+    $db = $mongoClient->tienda_online;
+    $products = $db->products->find();
+
+    $filterQuery = [];
+    if (isset($_GET['filter']) && !empty($_GET['filter']) && strtolower($_GET['filter']) != "all") {
+        $filterQuery['category'] = strtolower($_GET['filter']);
+    }
+
+    $options = [];
+    if (isset($_GET['sort']) && !empty($_GET['sort'])) {
+        $sortOrder = ($_GET['sort'] == 'asc') ? 1 : -1;
+        $options['sort'] = ['price' => $sortOrder];
+    }
+
+    $products = $db->products->find($filterQuery, $options);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang = "en">
 
@@ -94,9 +118,10 @@
 
                             <ul class = "dropdown-menu">
 
-                                <li><a class = "dropdown-item" href = "#">Earrings</a></li>
-                                <li><a class = "dropdown-item" href = "#">Rings</a></li>
-                                <li><a class = "dropdown-item" href = "#">Necklaces</a></li>
+                                <li><a class = "dropdown-item" href = "?filter=all">All</a></li>
+                                <li><a class = "dropdown-item" href = "?filter=earrings">Earrings</a></li>
+                                <li><a class = "dropdown-item" href = "?filter=rings">Rings</a></li>
+                                <li><a class = "dropdown-item" href = "?filter=necklaces">Necklaces</a></li>
 
                             </ul>
 
@@ -112,8 +137,9 @@
 
                             <ul class = "dropdown-menu dropdown-menu-end">
 
-                                <li><a class = "dropdown-item" href = "#">Price: Low to High</a></li>
-                                <li><a class = "dropdown-item" href = "#">Price: High to Low</a></li>
+                            <li><a class = "dropdown-item" href = "?filter=<?php echo isset($_GET['filter']) ? $_GET['filter'] : 'all';?>&sort=asc">Price: Low to High</a></li>
+                            <li><a class = "dropdown-item" href = "?filter=<?php echo isset($_GET['filter']) ? $_GET['filter'] : 'all';?>&sort=desc">Price: High to Low</a></li>
+
 
                             </ul>
 
@@ -129,242 +155,38 @@
 
                 <div class = "row">
 
-                    <div class = "col-12 col-md-4">
+                    <?php foreach($products as $product): ?>
 
-                        <div class = "item-card-container">
+                        <div class = "col-12 col-md-4 mb-4">
 
-                            <div class = "position-relative">
+                            <div class = "item-card-container">
 
-                                <img src = "images/earring-1.webp" alt = "Earrings" class = "item-card-img w-100">
-                                <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
+                                <div class = "position-relative">
 
-                            </div>
+                                    <img src = "<?php echo $product['photo']; ?>" alt = "<?php echo $product['name']; ?>" class = "item-card-img w-100">
 
-                            <p class = "item-card-title">Earrings</p>
-                            <p class = "item-card-price">$100</p>
+                                    <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">
 
-                            <div class = "d-flex align-items-center justify-content-between">
+                                        <?php echo ((int)$product['stock'] > 0) ? "AVAILABLE NOW" : "NO STOCK"; ?>
 
+                                    </span>
+
+                                </div>
+
+                                <p class = "item-card-title"><?php echo $product['name']; ?></p>
+                                <p class = "item-card-price">$<?php echo $product['price']; ?></p>
                                 <a href = "#" class = "item-card-btn">View Product</a>
-                                <i class = "bi bi-heart item-card-heart fs-5"></i>
 
                             </div>
 
                         </div>
 
-                    </div>
-
-                    <div class = "col-12 col-md-4 mb-4">
-
-                        <div class = "item-card-container">
-
-                            <div class = "position-relative">
-
-                                <img src = "images/earring-1.webp" alt = "Earrings" class = "item-card-img w-100">
-                                <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
-
-                            </div>
-
-                            <p class = "item-card-title">Earrings</p>
-                            <p class = "item-card-price">$100</p>
-
-                            <div class = "d-flex align-items-center justify-content-between">
-
-                                <a href = "#" class = "item-card-btn">View Product</a>
-                                <i class = "bi bi-heart item-card-heart fs-5"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class = "col-12 col-md-4 mb-4">
-
-                        <div class = "item-card-container">
-
-                            <div class = "position-relative">
-
-                                <img src = "images/earring-1.webp" alt = "Earrings" class = "item-card-img w-100">
-                                <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
-
-                            </div>
-
-                            <p class = "item-card-title">Earrings</p>
-                            <p class = "item-card-price">$100</p>
-
-                            <div class = "d-flex align-items-center justify-content-between">
-
-                                <a href = "#" class = "item-card-btn">View Product</a>
-                                <i class = "bi bi-heart item-card-heart fs-5"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class = "row">
-
-                    <div class = "col-12 col-md-4 mb-4">
-
-                        <div class = "item-card-container">
-
-                            <div class = "position-relative">
-
-                                <img src = "images/earring-1.webp" alt = "Earrings" class = "item-card-img w-100">
-                                <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
-
-                            </div>
-
-                            <p class = "item-card-title">Earrings</p>
-                            <p class = "item-card-price">$100</p>
-
-                            <div class = "d-flex align-items-center justify-content-between">
-
-                                <a href = "#" class = "item-card-btn">View Product</a>
-                                <i class = "bi bi-heart item-card-heart fs-5"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class = "col-12 col-md-4 mb-4">
-
-                        <div class = "item-card-container">
-
-                            <div class = "position-relative">
-
-                                <img src = "images/earring-1.webp" alt = "Earrings" class = "item-card-img w-100">
-                                <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
-
-                            </div>
-
-                            <p class = "item-card-title">Earrings</p>
-                            <p class = "item-card-price">$100</p>
-
-                            <div class = "d-flex align-items-center justify-content-between">
-
-                                <a href = "#" class = "item-card-btn">View Product</a>
-                                <i class = "bi bi-heart item-card-heart fs-5"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class = "col-12 col-md-4 mb-4">
-
-                        <div class = "item-card-container">
-
-                            <div class = "position-relative">
-
-                                <img src = "images/earring-1.webp" alt = "Earrings" class = "item-card-img w-100">
-                                <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
-
-                            </div>
-
-                            <p class = "item-card-title">Earrings</p>
-                            <p class = "item-card-price">$100</p>
-
-                            <div class = "d-flex align-items-center justify-content-between">
-
-                                <a href = "#" class = "item-card-btn">View Product</a>
-                                <i class = "bi bi-heart item-card-heart fs-5"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class = "row">
-
-                    <div class = "col-12 col-md-4 mb-4">
-
-                        <div class = "item-card-container">
-
-                            <div class = "position-relative">
-
-                                <img src = "images/earring-1.webp" alt = "Earrings" class = "item-card-img w-100">
-                                <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
-
-                            </div>
-
-                            <p class = "item-card-title">Earrings</p>
-                            <p class = "item-card-price">$100</p>
-
-                            <div class = "d-flex align-items-center justify-content-between">
-
-                                <a href = "#" class = "item-card-btn">View Product</a>
-                                <i class = "bi bi-heart item-card-heart fs-5"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class = "col-12 col-md-4 mb-4">
-
-                        <div class = "item-card-container">
-
-                            <div class = "position-relative">
-
-                                <img src = "images/earring-1.webp" alt = "Earrings" class = "item-card-img w-100">
-                                <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
-
-                            </div>
-
-                            <p class = "item-card-title">Earrings</p>
-                            <p class = "item-card-price">$100</p>
-
-                            <div class = "d-flex align-items-center justify-content-between">
-
-                                <a href = "#" class = "item-card-btn">View Product</a>
-                                <i class = "bi bi-heart item-card-heart fs-5"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class = "col-12 col-md-4 mb-4">
-
-                        <div class = "item-card-container">
-
-                            <div class = "position-relative">
-
-                                <img src = "images/earring-1.webp" alt = "Earrings" class = "item-card-img w-100">
-                                <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
-
-                            </div>
-
-                            <p class = "item-card-title">Earrings</p>
-                            <p class = "item-card-price">$100</p>
-
-                            <div class = "d-flex align-items-center justify-content-between">
-
-                                <a href = "#" class = "item-card-btn">View Product</a>
-                                <i class = "bi bi-heart item-card-heart fs-5"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
+                    <?php endforeach; ?>
 
                 </div>
 
             </div>
+
 
         </main>
 
