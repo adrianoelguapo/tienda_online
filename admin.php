@@ -71,7 +71,6 @@
 
                             <a class = "navbar-brand admin-logout" href = "logout.php">Log Out</a>
 
-
                         </div>
 
                     </div>
