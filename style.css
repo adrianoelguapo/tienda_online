@@ -869,3 +869,65 @@
     color: #555;
     margin-bottom: 0.5rem;
 }
+
+/* --- Estilos para la página de stock (stock.php) --- */
+.stock-card {
+    background-color: white;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease-in, box-shadow 0.3s ease;
+}
+
+.stock-card:hover {
+    transform: scale(1.025);
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.3);
+}
+
+.stock-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.stock-card .card-body {
+    padding: 1rem;
+}
+
+.stock-card .card-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.stock-card .card-text {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.input-group .form-control {
+    border-radius: 0;
+    border: 1px solid #ccc;
+}
+
+.input-group .btn {
+    border-radius: 0;
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.input-group .btn:hover {
+    background-color: #333;
+}
+
+.stock-main-title{
+    font-family: 'the-seasons-light';
+}
