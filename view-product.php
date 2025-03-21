@@ -108,142 +108,72 @@
         </nav>
 
         <!-- Contenido principal -->
-        <main class="container-fluid view-product-main">
-        <div class="container py-4">
-            <div class="row">
-                <!-- Columna de imagen -->
-                <div class="col-12 col-md-6 mb-4">
-                    <img src="<?php echo htmlspecialchars($product['photo']); ?>"
-                         alt="<?php echo htmlspecialchars($product['name']); ?>"
-                         class="img-fluid" />
-                </div>
+        <main class = "container-fluid view-product-main">
 
-                <!-- Columna de detalles -->
-                <div class="col-12 col-md-6">
-                    <h1 class="mb-3">
-                        <?php echo htmlspecialchars($product['name']); ?>
-                    </h1>
+            <div class = "container py-4">
 
-                    <p class="mb-2" style="font-weight:600; font-size:1.1rem;">
-                        $<?php echo htmlspecialchars($product['price']); ?>
-                        <span class="ms-3" style="font-size:0.85rem;">
-                            <?php
-                                echo ((int)$product['stock'] > 0) ? "AVAILABLE NOW" : "NO STOCK";
-                            ?>
-                        </span>
-                    </p>
+                <div class = "row">
 
-                    <p class="mb-4 text-muted">
-                        Category: <?php echo ucfirst($product['category']); ?>
-                    </p>
-
-                    <div class="d-flex align-items-center mb-4">
-                        <button class="btn btn-dark me-3" <?php if((int)$product['stock'] <= 0) echo 'disabled'; ?>>
-                            Add to Cart
-                        </button>
-                        <button class="btn btn-outline-dark" <?php if((int)$product['stock'] <= 0) echo 'disabled'; ?>>
-                            Add to Wishlist
-                        </button>
+                    <div class = "col-12 col-md-6 mb-4">
+                        
+                        <img src = "<?php echo htmlspecialchars($product['photo']);?>" alt = "<?php echo htmlspecialchars($product['name']);?>" class = "img-fluid product-img"/>
+                    
                     </div>
 
-                    <!-- Acordeón con detalles -->
-                    <div class="accordion" id="productAccordion">
-                        <!-- Descripción -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingDesc">
-                                <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseDesc"
-                                        aria-expanded="false" aria-controls="collapseDesc">
-                                    Description
-                                </button>
-                            </h2>
-                            <div id="collapseDesc" class="accordion-collapse collapse"
-                                 aria-labelledby="headingDesc" data-bs-parent="#productAccordion">
-                                <div class="accordion-body">
-                                    <?php echo nl2br(htmlspecialchars($product['desc'])); ?>
-                                </div>
-                            </div>
+                    <div class = "col-12 col-md-6">
+
+                        <h1 class = "mb-3">
+
+                            <?php echo htmlspecialchars($product['name']); ?>
+
+                        </h1>
+
+                        <p class = "mb-2 product-price">$<?php echo htmlspecialchars($product['price']);?>
+
+                            <span class = "ms-3"><?php echo ((int)$product['stock'] > 0) ? "AVAILABLE NOW" : "NO STOCK";?></span>
+
+                        </p>
+
+                        <p class = "mb-4 text-muted">Category: <?php echo ucfirst($product['category']);?></p>
+
+                        <div class = "d-flex align-items-center mb-4">
+
+                            <button class = "btn btn-dark me-3" <?php if((int)$product['stock'] <= 0) echo 'disabled';?>>Add to Cart</button>
+                            <button class="btn btn-outline-dark" <?php if((int)$product['stock'] <= 0) echo 'disabled';?>>Add to Wishlist</button>
+
                         </div>
 
-                        <!-- Details -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingDetails">
-                                <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseDetails"
-                                        aria-expanded="false" aria-controls="collapseDetails">
-                                    Details
-                                </button>
-                            </h2>
-                            <div id="collapseDetails" class="accordion-collapse collapse"
-                                 aria-labelledby="headingDetails" data-bs-parent="#productAccordion">
-                                <div class="accordion-body">
-                                    <!-- Aquí puedes poner más detalles específicos del producto -->
-                                    <p>Material: ???</p>
-                                    <p>Finish: ???</p>
+                        <div class = "accordion" id = "productAccordion">
+
+                            <div class = "accordion-item">
+
+                                <h2 class = "accordion-header" id = "headingDesc">
+                                    
+                                    <button class = "accordion-button collapsed" type = "button" data-bs-toggle = "collapse" data-bs-target = "#collapseDesc" aria-expanded = "true" aria-controls = "collapseDesc">Description</button>
+                                
+                                </h2>
+
+                                <div id = "collapseDesc" class = "accordion-collapse collapse show" aria-labelledby = "headingDesc" data-bs-parent = "#productAccordion">
+                                    
+                                    <div class = "accordion-body">
+                                        
+                                        <?php echo nl2br(htmlspecialchars($product['desc']));?>
+                                    
+                                    </div>
+                                
                                 </div>
+                            
                             </div>
+
                         </div>
 
-                        <!-- Dimensions -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingDimensions">
-                                <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseDimensions"
-                                        aria-expanded="false" aria-controls="collapseDimensions">
-                                    Dimensions
-                                </button>
-                            </h2>
-                            <div id="collapseDimensions" class="accordion-collapse collapse"
-                                 aria-labelledby="headingDimensions" data-bs-parent="#productAccordion">
-                                <div class="accordion-body">
-                                    <!-- Ejemplo de dimensiones -->
-                                    <p>Height: 10 cm</p>
-                                    <p>Width: 5 cm</p>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
 
-                        <!-- Care & Materials -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingCare">
-                                <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseCare"
-                                        aria-expanded="false" aria-controls="collapseCare">
-                                    Care & Materials
-                                </button>
-                            </h2>
-                            <div id="collapseCare" class="accordion-collapse collapse"
-                                 aria-labelledby="headingCare" data-bs-parent="#productAccordion">
-                                <div class="accordion-body">
-                                    <!-- Ejemplo de cuidados -->
-                                    <p>Clean with a soft cloth. Avoid direct contact with water.</p>
-                                </div>
-                            </div>
-                        </div>
+                </div>
 
-                        <!-- Downloads -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingDownloads">
-                                <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseDownloads"
-                                        aria-expanded="false" aria-controls="collapseDownloads">
-                                    Downloads
-                                </button>
-                            </h2>
-                            <div id="collapseDownloads" class="accordion-collapse collapse"
-                                 aria-labelledby="headingDownloads" data-bs-parent="#productAccordion">
-                                <div class="accordion-body">
-                                    <!-- Ejemplo de descarga -->
-                                    <p><a href="#">Download Product Sheet (PDF)</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- Fin acordeón -->
+            </div>
 
-                </div> <!-- Fin col detalles -->
-            </div> <!-- Fin row -->
-        </div> <!-- Fin container -->
-    </main>
+        </main>
 
         <!-- Sección previa al footer -->
         <section class = "container-fluid prefooter-section">
