@@ -1,3 +1,24 @@
+<?php
+
+    session_start();
+    require 'vendor/autoload.php';
+    $mongoClient = new MongoDB\Client("mongodb+srv://admin:123@cluster0.tz018.mongodb.net/?retryWrites=true&w=majority");
+    $db = $mongoClient->tienda_online;
+    $productsCollection = $db->products;
+
+    $allProducts = $productsCollection->find()->toArray();
+
+    $positions = [1, 2, 3, 4, 6, 7];
+
+    $product1 = isset($allProducts[1]) ? $allProducts[1] : null;
+    $product2 = isset($allProducts[2]) ? $allProducts[2] : null;
+    $product3 = isset($allProducts[3]) ? $allProducts[3] : null;
+    $product4 = isset($allProducts[4]) ? $allProducts[4] : null;
+    $product6 = isset($allProducts[6]) ? $allProducts[6] : null;
+    $product7 = isset($allProducts[7]) ? $allProducts[7] : null;
+
+?>
+
 <!DOCTYPE html>
 <html lang = "en">
 
@@ -64,8 +85,6 @@
                         <div class = "d-flex justify-content-center offcanvas-icons">
 
                             <?php
-
-                                session_start();
 
                                 if(isset($_SESSION['username'])) {
                                     echo '<a class="navbar-brand" href="profile.php"><i class="bi bi-person"></i></a>';
@@ -156,7 +175,6 @@
                 <div class = "col-12 best-sellers-section d-flex flex-column justify-content-center align-items-center">
 
                     <p class = "best-sellers-section-title mt-4">BEST SELLERS</p>
-
                     <p class = "best-sellers-section-subtitle mb-4">Discover our most popular products</p>
 
                 </div>
@@ -179,16 +197,21 @@
 
                                         <div class = "position-relative">
 
-                                            <img src = "images/earring-1.webp" alt = "best-sellers-item-1" class = "item-card-img w-100">
-                                            <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
+                                            <img src = "<?php echo htmlspecialchars($product1['photo']);?>" alt = "<?php echo htmlspecialchars($product1['name']);?>" class = "item-card-img w-100">
+
+                                            <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">
+
+                                                <?php echo ((int)$product1['stock'] > 0) ? "AVAILABLE NOW" : "NO STOCK";?>
+
+                                            </span>
 
                                         </div>
 
-                                        <p class = "item-card-title">Earrings</p>
+                                        <p class = "item-card-title"><?php echo htmlspecialchars($product1['name']);?></p>
 
-                                        <p class = "item-card-price">$100</p>
+                                        <p class = "item-card-price">$<?php echo htmlspecialchars($product1['price']);?></p>
 
-                                        <a href = "#" class = "item-card-btn">View Product</a>
+                                        <a href = "view-product.php?id=<?php echo (string)$product1['_id'];?>" class = "item-card-btn">View Product</a>
 
                                     </div>
 
@@ -200,17 +223,22 @@
 
                                         <div class = "position-relative">
 
-                                            <img src = "images/earring-1.webp" alt = "best-sellers-item-1" class = "item-card-img w-100">
-                                            <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
-
+                                            <img src = "<?php echo htmlspecialchars($product2['photo']);?>" alt = "<?php echo htmlspecialchars($product2['name']);?>" class = "item-card-img w-100">
+                                            
+                                            <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">
+                                                
+                                                <?php echo ((int)$product2['stock'] > 0) ? "AVAILABLE NOW" : "NO STOCK";?>
+                                            
+                                            </span>
+                                        
                                         </div>
+                                        
+                                        <p class = "item-card-title"><?php echo htmlspecialchars($product2['name']);?></p>
 
-                                        <p class = "item-card-title">Earrings</p>
-
-                                        <p class = "item-card-price">$100</p>
-
-                                        <a href = "#" class = "item-card-btn">View Product</a>
-
+                                        <p class = "item-card-price">$<?php echo htmlspecialchars($product2['price']);?></p>
+ 
+                                        <a href = "view-product.php?id=<?php echo (string)$product2['_id'];?>" class = "item-card-btn">View Product</a>
+                                    
                                     </div>
 
                                 </div>
@@ -221,17 +249,22 @@
 
                                         <div class = "position-relative">
 
-                                            <img src = "images/earring-1.webp" alt = "best-sellers-item-1" class = "item-card-img w-100">
-                                            <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
+                                            <img src = "<?php echo htmlspecialchars($product3['photo']);?>" alt = "<?php echo htmlspecialchars($product3['name']);?>" class = "item-card-img w-100">
+                                            
+                                            <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">
+                                               
+                                                <?php echo ((int)$product3['stock'] > 0) ? "AVAILABLE NOW" : "NO STOCK";?>
+                                            
+                                            </span>
 
                                         </div>
 
-                                        <p class = "item-card-title">Earrings</p>
+                                        <p class = "item-card-title"><?php echo htmlspecialchars($product3['name']);?></p>
 
-                                        <p class = "item-card-price">$100</p>
+                                        <p class = "item-card-price">$<?php echo htmlspecialchars($product3['price']);?></p>
 
-                                        <a href = "#" class = "item-card-btn">View Product</a>
-
+                                        <a href = "view-product.php?id=<?php echo (string)$product3['_id'];?>" class = "item-card-btn">View Product</a>
+                                    
                                     </div>
 
                                 </div>
@@ -240,7 +273,7 @@
 
                         </div>
 
-                        <div class = "carousel-item active">
+                        <div class = "carousel-item">
 
                             <div class = "row justify-content-center">
 
@@ -250,16 +283,20 @@
 
                                         <div class = "position-relative">
 
-                                            <img src = "images/earring-1.webp" alt = "best-sellers-item-1" class = "item-card-img w-100">
-                                            <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
+                                            <img src = "<?php echo htmlspecialchars($product4['photo']);?>" alt = "<?php echo htmlspecialchars($product4['name']);?>" class = "item-card-img w-100">
+                                            
+                                            <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">
+                                                
+                                                <?php echo ((int)$product4['stock'] > 0) ? "AVAILABLE NOW" : "NO STOCK";?>
+                                            
+                                            </span>
 
                                         </div>
 
-                                        <p class = "item-card-title">Earrings</p>
+                                        <p class = "item-card-title"><?php echo htmlspecialchars($product4['name']);?></p>
+                                        <p class = "item-card-price">$<?php echo htmlspecialchars($product4['price']);?></p>
 
-                                        <p class = "item-card-price">$100</p>
-
-                                        <a href = "#" class = "item-card-btn">View Product</a>
+                                        <a href = "view-product.php?id=<?php echo (string)$product4['_id'];?>" class = "item-card-btn">View Product</a>
 
                                     </div>
 
@@ -271,17 +308,22 @@
 
                                         <div class = "position-relative">
 
-                                            <img src = "images/earring-1.webp" alt = "best-sellers-item-1" class = "item-card-img w-100">
-                                            <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
+                                            <img src = "<?php echo htmlspecialchars($product6['photo']);?>" alt = "<?php echo htmlspecialchars($product6['name']);?>" class = "item-card-img w-100">
+                                            
+                                            <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">
+                                                
+                                                <?php echo ((int)$product6['stock'] > 0) ? "AVAILABLE NOW" : "NO STOCK";?>
+                                            
+                                            </span>
 
                                         </div>
 
-                                        <p class = "item-card-title">Earrings</p>
+                                        <p class = "item-card-title"><?php echo htmlspecialchars($product6['name']);?></p>
 
-                                        <p class = "item-card-price">$100</p>
+                                        <p class = "item-card-price">$<?php echo htmlspecialchars($product6['price']);?></p>
 
-                                        <a href = "#" class = "item-card-btn">View Product</a>
-
+                                        <a href = "view-product.php?id=<?php echo (string)$product6['_id'];?>" class = "item-card-btn">View Product</a>
+                                    
                                     </div>
 
                                 </div>
@@ -291,41 +333,47 @@
                                     <div class = "item-card-container">
 
                                         <div class = "position-relative">
-
-                                            <img src = "images/earring-1.webp" alt = "best-sellers-item-1" class = "item-card-img w-100">
-                                            <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
+                                            
+                                            <img src = "<?php echo htmlspecialchars($product7['photo']);?>" alt = "<?php echo htmlspecialchars($product7['name']);?>" class = "item-card-img w-100">
+                                            
+                                            <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">
+                                                
+                                                <?php echo ((int)$product7['stock'] > 0) ? "AVAILABLE NOW" : "NO STOCK";?>
+                                            
+                                            </span>
 
                                         </div>
 
-                                        <p class = "item-card-title">Earrings</p>
+                                        <p class = "item-card-title"><?php echo htmlspecialchars($product7['name']);?></p>
 
-                                        <p class = "item-card-price">$100</p>
+                                        <p class = "item-card-price">$<?php echo htmlspecialchars($product7['price']);?></p>
 
-                                        <a href = "#" class = "item-card-btn">View Product</a>
+                                        <a href = "view-product.php?id=<?php echo (string)$product7['_id']; ?>" class = "item-card-btn">View Product</a>
 
                                     </div>
 
                                 </div>
-                                
+
                             </div>
 
                         </div>
 
-                        <button class = "carousel-control-prev" type = "button" data-bs-target = "#best-sellers-carousel" data-bs-slide = "prev">
-
-                            <span class = "carousel-control-prev-icon" aria-hidden = "true"></span>
-                            <span class = "visually-hidden">Previous</span>
-
-                        </button>
-
-                        <button class = "carousel-control-next" type = "button" data-bs-target = "#best-sellers-carousel" data-bs-slide = "next">
-
-                            <span class = "carousel-control-next-icon" aria-hidden = "true"></span>
-                            <span class = "visually-hidden">Next</span>
-
-                        </button>
-
                     </div>
+
+                    <button class = "carousel-control-prev" type = "button" data-bs-target = "#best-sellers-carousel" data-bs-slide = "prev">
+
+                        <span class = "carousel-control-prev-icon" aria-hidden = "true"></span>
+
+                        <span class = "visually-hidden">Previous</span>
+
+                    </button>
+
+                    <button class = "carousel-control-next" type = "button" data-bs-target = "#best-sellers-carousel" data-bs-slide = "next">
+
+                        <span class = "carousel-control-next-icon" aria-hidden = "true"></span>
+                        <span class = "visually-hidden">Next</span>
+
+                    </button>
 
                 </div>
 
