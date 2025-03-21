@@ -104,61 +104,107 @@
         </nav>
 
         <!-- Contenido principal -->
-        <main class="container-fluid cart-main py-5">
-        <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-8">
-            <div class="row align-items-center mb-3">
-                <div class="col-6 col-lg-6">
-                <h2 class="cart-page-title mb-0">BASKET</h2>
+        <main class = "container-fluid cart-main py-5">
+
+            <div class = "container">
+
+                <div class = "row">
+
+                    <div class = "col-12 col-lg-8">
+
+                        <div class = "row align-items-center mb-3">
+
+                            <div class = "col-6 col-lg-6">
+
+                                <h2 class = "cart-page-title mb-0">BASKET</h2>
+
+                            </div>
+
+                        <div class = "col-6 col-lg-6 text-lg-end">
+
+                            <a href = "products.php" class = "btn btn-light cart-continue-btn">Continue Shopping</a>
+
+                        </div>
+
+                    </div>
+
+                    <hr class = "mb-4"/>
+
+                    <?php 
+
+                        $subtotal = 0;
+                        foreach ($cart as $item):
+                        $quantity = isset($item['quantity']) ? (int)$item['quantity'] : 1;
+                        $price = (float)$item['price'];
+                        $totalItem = $price * $quantity;
+                        $subtotal += $totalItem;
+
+                    ?>
+
+                    <div class = "row align-items-center mb-4 cart-item" data-product-id = "<?php echo (string)$item['_id'];?>">
+
+                        <div class = "col-3 col-lg-2">
+
+                            <img src = "<?php echo htmlspecialchars($item['photo']);?>" alt="<?php echo htmlspecialchars($item['name']);?>" class = "img-fluid cart-item-img"/>
+
+                        </div>
+
+                        <div class = "col-9 col-lg-6">
+
+                            <p class = "cart-item-title"><?php echo htmlspecialchars($item['name']);?></p>
+
+                        </div>
+
+                        <div class = "col-12 col-lg-4 mt-2 mt-lg-0 d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-end">
+
+                            <p class = "cart-item-price me-lg-4 mb-2 mb-lg-0">$<?php echo number_format($totalItem, 2);?></p>
+
+                            <div class = "d-flex align-items-center quantity-controls">
+
+                                <button class = "btn btn-light btn-sm minus-btn">-</button>
+
+                                <input type = "text" value="<?php echo $quantity;?>" class = "form-control text-center mx-2 cart-item-qty"/>
+
+                                <button class = "btn btn-light btn-sm plus-btn">+</button>
+
+                            </div>
+
+                            <button class="btn btn-link text-dark ms-lg-3 mt-2 mt-lg-0 cart-item-remove">REMOVE</button>
+
+                        </div>
+
+                    </div>
+
+                    <hr class = "mb-4"/>
+
+                    <?php endforeach; ?>
+
                 </div>
-                <div class="col-6 col-lg-6 text-lg-end">
-                <a href="products.php" class="btn btn-light cart-continue-btn">Continue Shopping</a>
+
+                <div class = "col-12 col-lg-4">
+
+                    <div class = "d-flex justify-content-between align-items-center mb-4">
+
+                        <span class = "cart-total-label">TOTAL</span>
+                        <span class = "cart-total-amount">$<?php echo number_format($subtotal, 2);?></span>
+
+                    </div>
+
+                        <div class = "mb-3 d-flex flex-column align-items-end">
+
+                            <label for = "orderNotes" class = "form-label cart-notes-label">Add order notes</label>
+                            <textarea class = "form-control cart-notes-textarea" id = "orderNotes" rows = "3"></textarea>
+                            
+                        </div>
+
+                        <button class = "btn btn-dark w-100 cart-checkout-btn">CHECK OUT</button>
+
+                    </div>
+
                 </div>
+
             </div>
-            <hr class="mb-4"/>
-            <?php 
-                $subtotal = 0;
-                foreach ($cart as $item):
-                $quantity = isset($item['quantity']) ? (int)$item['quantity'] : 1;
-                $price = (float)$item['price'];
-                $totalItem = $price * $quantity;
-                $subtotal += $totalItem;
-            ?>
-            <div class="row align-items-center mb-4 cart-item" data-product-id="<?php echo (string)$item['_id']; ?>">
-                <div class="col-3 col-lg-2">
-                <img src="<?php echo htmlspecialchars($item['photo']); ?>" alt="<?php echo htmlspecialchars($item['name']); ?>" class="img-fluid cart-item-img"/>
-                </div>
-                <div class="col-9 col-lg-6">
-                <p class="cart-item-title"><?php echo htmlspecialchars($item['name']); ?></p>
-                <!-- Detalles opcionales -->
-                </div>
-                <div class="col-12 col-lg-4 mt-2 mt-lg-0 d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-end">
-                <p class="cart-item-price me-lg-4 mb-2 mb-lg-0">$<?php echo number_format($totalItem, 2); ?></p>
-                <div class="d-flex align-items-center quantity-controls">
-                    <button class="btn btn-light btn-sm minus-btn">-</button>
-                    <input type="text" value="<?php echo $quantity; ?>" class="form-control text-center mx-2 cart-item-qty" style="width: 50px;"/>
-                    <button class="btn btn-light btn-sm plus-btn">+</button>
-                </div>
-                <button class="btn btn-link text-dark ms-lg-3 mt-2 mt-lg-0 cart-item-remove">REMOVE</button>
-                </div>
-            </div>
-            <hr class="mb-4"/>
-            <?php endforeach; ?>
-            </div>
-            <div class="col-12 col-lg-4">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <span class="cart-total-label">TOTAL</span>
-                <span class="cart-total-amount">$<?php echo number_format($subtotal, 2); ?></span>
-            </div>
-            <div class="mb-3 d-flex flex-column align-items-end">
-                <label for="orderNotes" class="form-label cart-notes-label">Add order notes</label>
-                <textarea class="form-control cart-notes-textarea" id="orderNotes" rows="3"></textarea>
-            </div>
-            <button class="btn btn-dark w-100 cart-checkout-btn">CHECK OUT</button>
-            </div>
-        </div>
-        </div>
+
         </main>
           
         <!-- Sección previa al footer -->

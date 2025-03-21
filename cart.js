@@ -31,26 +31,45 @@ $(document).ready(function(){
     });
 
     $('.cart-item-remove').click(function(){
-        if(confirm("Remove this item from your cart?")){
-            let $row = $(this).closest('.cart-item');
-            let productId = $row.data('product-id');
-            $.ajax({
-                url: 'remove-from-cart.php',
-                type: 'POST',
-                dataType: 'json',
-                data: { product_id: productId },
-                success: function(response){
-                    if(response.success){
-                        location.reload();
-                    } else {
-                        alert(response.error);
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown){
-                    console.error('Error: ' + textStatus, errorThrown);
+        let $row = $(this).closest('.cart-item');
+        let productId = $row.data('product-id');
+        $.ajax({
+            url: 'remove-from-cart.php',
+            type: 'POST',
+            dataType: 'json',
+            data: { product_id: productId },
+            success: function(response){
+                if(response.success){
+                    location.reload();
+                } else {
+                    alert(response.error);
                 }
-            });
-        }
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+                console.error('Error: ' + textStatus, errorThrown);
+            }
+        });
+    });
+
+    $('.cart-checkout-btn').click(function(){
+        let orderNote = $('#orderNotes').val();
+        $.ajax({
+            url: 'checkout.php',
+            type: 'POST',
+            dataType: 'json',
+            data: { orderNotes: orderNote },
+            success: function(response){
+                if(response.success){
+                    alert(response.message);
+                    location.reload();
+                } else {
+                    alert(response.error);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+                console.error("Error: " + textStatus, errorThrown);
+            }
+        });
     });
 
     function updateCartItem($row, newQuantity){

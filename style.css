@@ -532,7 +532,7 @@
 }
 
 .cart-item-qty{
-    width: 50px;
+    width: 3rem;
 }
 
 .cart-item-remove{
@@ -566,6 +566,8 @@
     flex-direction: column;
     align-items: flex-end;
 }
+
+
 
 /* --- Estilos para el perfil de usuario (profile.php) --- */
 .profile-main{
