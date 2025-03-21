@@ -97,49 +97,101 @@
 
         <!-- Contenido principal -->
         <main class = "container-fluid orders-main pt-3">
+
             <div class = "container">
+
                 <h1 class = "orders-title text-center mb-5">Pending Orders</h1>
-                <div class = "row">
-                    <?php foreach($orders as $order):?>
+                
+                    <div class = "row">
+
+                        <?php 
+
+                            $i = 1;
+                            foreach($orders as $order):
+
+                        ?>
+
                         <div class = "col-12 col-md-6 col-lg-4 mb-4">
-                            <div class="card order-card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title">Order #<?php echo (string)$order['_id']; ?></h5>
-                                    <p class="card-text"><strong>User:</strong> <?php echo htmlspecialchars($order['user']); ?></p>
-                                    <p class="card-text"><strong>Total:</strong> $<?php echo number_format($order['total'], 2); ?></p>
-                                    <p class="card-text"><strong>Note:</strong> <?php echo htmlspecialchars($order['note']); ?></p>
-                                    <div class="order-products mt-3">
-                                        <h6 class="mb-2">Products:</h6>
+
+                            <div class = "card order-card h-100">
+
+                                <div class = "card-body">
+
+                                    <h5 class = "card-title">Order <?php echo $i;?></h5>
+
+                                    <p class = "card-text"><strong>User:</strong> <?php echo htmlspecialchars($order['user']);?></p>
+
+                                    <p class = "card-text"><strong>Total:</strong> $<?php echo number_format($order['total'], 2);?></p>
+
+                                    <p class = "card-text"><strong>Note:</strong> <?php echo htmlspecialchars($order['note']);?></p>
+
+                                    <div class = "order-products mt-3">
+
+                                        <h6 class = "mb-2">Products:</h6>
+
                                         <?php if (isset($order['products'])):
+
                                             $products = is_array($order['products']) ? $order['products'] : iterator_to_array($order['products']);
+
                                         ?>
+
                                         <ul class = "list-unstyled">
-                                            <?php foreach($products as $product): ?>
-                                                <li class="mb-2">
-                                                    <div class="d-flex align-items-center">
+
+                                            <?php foreach($products as $product):?>
+
+                                                <li class = "mb-2">
+
+                                                    <div class = "d-flex align-items-center">
+
                                                         <div>
-                                                            <p class="mb-0"><strong><?php echo htmlspecialchars($product['name']); ?></strong></p>
-                                                            <p class="mb-0">$<?php echo number_format((float)$product['price'], 2); ?> x <?php echo (int)$product['quantity']; ?></p>
+
+                                                            <p class = "mb-0"><strong><?php echo htmlspecialchars($product['name']);?></strong></p>
+                                                            <p class = "mb-0">$<?php echo number_format((float)$product['price'], 2);?> x <?php echo (int)$product['quantity'];?></p>
+
                                                         </div>
+
                                                     </div>
+
                                                 </li>
-                                            <?php endforeach; ?>
+
+                                            <?php endforeach;?>
+
                                         </ul>
-                                        <?php else: ?>
+
+                                        <?php else:?>
+
                                             <p>No products found in this order.</p>
-                                        <?php endif; ?>
+
+                                        <?php endif;?>
+
                                     </div>
-                                    <div class="mt-3 d-flex justify-content-between">
-                                        <button class="btn btn-success accept-order" data-order-id="<?php echo (string)$order['_id']; ?>">Accept Order</button>
-                                        <button class="btn btn-danger reject-order" data-order-id="<?php echo (string)$order['_id']; ?>">Reject Order</button>
+
+                                    <div class = "mt-3 d-flex justify-content-between">
+
+                                        <button class = "btn btn-success accept-order" data-order-id = "<?php echo (string)$order['_id'];?>">Accept Order</button>
+                                        <button class = "btn btn-danger reject-order" data-order-id = "<?php echo (string)$order['_id'];?>">Reject Order</button>
+
                                     </div>
+
                                 </div>
+
                             </div>
+
                         </div>
-                    <?php endforeach; ?>
+
+                    <?php 
+                        $i++;
+                        endforeach; 
+                    ?>
+
                 </div>
+
             </div>
-        </main>                      
+
+        </main>
+        
+        <script src = "https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src = "orders.js"></script>
 
     </body>
 
