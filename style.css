@@ -325,6 +325,7 @@
     font-variant: small-caps;
     transition: all 0.3s ease-in;
     border-radius: 0px;
+    background-color: black;
 }
 
 .login-form button:hover{
@@ -728,4 +729,106 @@
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
     font-size: 1.1rem;
+}
+
+/* --- Estilos para el panel de administración (admin.php) --- */
+.admin-main{
+    padding: 2rem 0;
+}
+
+.admin-welcome{
+    font-family: 'the-seasons-light';
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.admin-card{
+    background-color: white;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.admin-card:hover{
+    transform: scale(1.025);
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.3);
+}
+
+.admin-card img{
+    width: 100%;
+    object-fit: cover;
+    height: 12.5rem;
+}
+
+.admin-card .card-body{
+    padding: 1rem;
+}
+
+.admin-card .card-title{
+    font-family: 'the-seasons-light';
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.admin-card .card-text{
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.admin-card .btn{
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.admin-card .btn:hover{
+    background-color: #333;
+    color: #fff;
+}
+
+/* --- Estilos para la página de pedidos (orders.php) --- */
+.orders-title{
+    font-family: 'the-seasons-light';
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.order-card{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+}
+
+.order-card:hover {
+    transform: scale(1.025);
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.3);
+}
+
+.order-card .card-body{
+    padding: 1rem;
+}
+
+.order-card .card-title{
+    font-family: 'the-seasons-light';
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.order-card .card-text{
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.5rem;
 }
