@@ -1,4 +1,8 @@
 $(document).ready(function(){
+    function showModal(message) {
+        $("#notificationModal .modal-body").text(message);
+        $("#notificationModal").modal('show');
+    }
 
     $('.plus-btn').click(function(){
         let $row = $(this).closest('.cart-item');
@@ -42,7 +46,7 @@ $(document).ready(function(){
                 if(response.success){
                     location.reload();
                 } else {
-                    alert(response.error);
+                    showModal(response.error);
                 }
             },
             error: function(jqXHR, textStatus, errorThrown){
@@ -60,10 +64,10 @@ $(document).ready(function(){
             data: { orderNotes: orderNote },
             success: function(response){
                 if(response.success){
-                    alert(response.message);
+                    showModal(response.message);
                     location.reload();
                 } else {
-                    alert(response.error);
+                    showModal(response.error);
                 }
             },
             error: function(jqXHR, textStatus, errorThrown){
@@ -83,7 +87,7 @@ $(document).ready(function(){
                 if(response.success){
                     location.reload();
                 } else {
-                    alert(response.error);
+                    showModal(response.error);
                 }
             },
             error: function(jqXHR, textStatus, errorThrown){

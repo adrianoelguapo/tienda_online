@@ -1,7 +1,12 @@
 $(document).ready(function(){
-    // Handler para añadir a wishlist (ya existente)
+    function showModal(message) {
+        $('#notificationModal .modal-body').text(message);
+        $('#notificationModal').modal('show');
+    }
+    
+
     $('.add-to-wishlist').click(function(){
-        var productId = $(this).data('product-id');
+        let productId = $(this).data('product-id');
         $.ajax({
             url: 'add-to-wishlist.php',
             type: 'POST',
@@ -9,9 +14,9 @@ $(document).ready(function(){
             data: { product_id: productId },
             success: function(response){
                 if(response.success){
-                    alert('Product added to wishlist');
+                    showModal('Product added to wishlist');
                 } else {
-                    alert(response.error);
+                    showModal(response.error);
                 }
             },
             error: function(jqXHR, textStatus, errorThrown){
@@ -29,9 +34,9 @@ $(document).ready(function(){
             data: { product_id: productId },
             success: function(response){
                 if(response.success){
-                    alert('Product added to cart');
+                    showModal('Product added to cart');
                 } else {
-                    alert(response.error);
+                    showModal(response.error);
                 }
             },
             error: function(jqXHR, textStatus, errorThrown){

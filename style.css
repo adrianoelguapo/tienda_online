@@ -519,6 +519,7 @@
     font-family: 'Raleway';
     font-weight: 600;
     margin-bottom: 0.25rem;
+    font-variant: small-caps;
 }
 
 .cart-item-details{
@@ -930,4 +931,49 @@
 
 .stock-main-title{
     font-family: 'the-seasons-light';
+}
+
+/* --- Estilos para los modales --- */
+.modal-body{
+    font-family: 'Raleway';
+}
+
+.modal-title{
+    font-family: 'the-seasons-light';
+    font-size: 1.75rem;
+    text-transform: uppercase;
+}
+
+#notificationModal .modal-dialog{
+    border-radius: 0;
+    border: none;
+}
+
+#notificationModal .modal-content{
+    border-radius: 0;
+    border: none;
+}
+
+#notificationModal .modal-header,
+#notificationModal .modal-footer{
+    border-radius: 0;
+    border: none;
+}
+
+#notificationModal .modal-button{
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 0.85rem;
+    border: none;
+    border-radius: 0px;
+    transition: all 0.3s ease-in;
+}
+
+#notificationModal .modal-button:hover{
+    background-color: gray;
 }

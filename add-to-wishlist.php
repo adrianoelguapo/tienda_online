@@ -43,7 +43,7 @@
     if ($updateResult->getModifiedCount() === 1) {
         echo json_encode(['success' => true]);
     } else {
-        echo json_encode(['success' => false, 'error' => 'Could not update wishlist']);
+        echo json_encode(['success' => false, 'error' => 'Product already in the wishlist']);
     }
     
 ?>

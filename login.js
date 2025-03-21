@@ -1,4 +1,9 @@
 $(document).ready(function(){
+  function showModal(message) {
+    $('#notificationModal .modal-body').text(message);
+    $('#notificationModal').modal('show');
+}
+
   $('.login-form').submit(function(e){
     e.preventDefault();
     let username = $('#login-username').val();
@@ -17,7 +22,7 @@ $(document).ready(function(){
             window.location.href = 'index.php';
           }
         } else {
-          alert(response.error);
+          showModal(response.error);
         }
       },
       error: function(jqXHR, textStatus, errorThrown){
