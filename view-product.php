@@ -95,7 +95,7 @@
 
                             <a class = "navbar-brand" href = "login.php"><i class = "bi bi-person"></i></a>
                             <a class = "navbar-brand" href = "favs.php"><i class = "bi bi-heart"></i></a>
-                            <a class = "navbar-brand" href = "cart.html"><i class = "bi bi-bag"></i></a>
+                            <a class = "navbar-brand" href = "cart.php"><i class = "bi bi-bag"></i></a>
 
                         </div>
 
@@ -134,12 +134,12 @@
 
                         </p>
 
-                        <p class = "mb-4 text-muted">Category: <?php echo ucfirst($product['category']);?></p>
+                        <p class = "mb-4 text-muted">Category: <?php echo $product['category'];?></p>
 
                         <div class = "d-flex align-items-center mb-4">
 
                             <button class = "btn btn-dark me-3" <?php if((int)$product['stock'] <= 0) echo 'disabled';?>>Add to Cart</button>
-                            <button class="btn btn-outline-dark" <?php if((int)$product['stock'] <= 0) echo 'disabled';?>>Add to Wishlist</button>
+                            <button class = "btn btn-outline-dark add-to-wishlist" data-product-id = "<?php echo (string)$product['_id'];?>" <?php if((int)$product['stock'] <= 0) echo 'disabled';?>>Add to Wishlist</button>
 
                         </div>
 
@@ -157,7 +157,7 @@
                                     
                                     <div class = "accordion-body">
                                         
-                                        <?php echo nl2br(htmlspecialchars($product['desc']));?>
+                                        <?php echo htmlspecialchars($product['desc']);?>
                                     
                                     </div>
                                 
@@ -234,6 +234,9 @@
             </div>
 
         </footer>
+
+        <script src = "https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src = "view-product.js"></script>
 
     </body>
 

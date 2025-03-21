@@ -615,8 +615,8 @@
 }
 
 .view-product-main img.img-fluid{
-    border: 1px solid #dfdfdf;
-    box-shadow: 0 0 1rem rgba(0,0,0,0.15);
+    box-shadow: 0 0 1.1rem rgba(0,0,0,0.4);
+    max-width: 80%;
 }
 
 .view-product-main h1{
@@ -624,11 +624,6 @@
     font-size: 2rem;
     margin-bottom: 1rem;
     font-variant: small-caps;
-}
-
-.view-product-main p[style*="font-weight:600"]{
-    font-family: 'Raleway', sans-serif;
-    margin-bottom: 0.5rem;
 }
 
 .view-product-main p.text-muted{
@@ -696,8 +691,4 @@
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
     font-size: 1.1rem;
-}
-
-.product-img {
-    max-width: 80%;
 }
