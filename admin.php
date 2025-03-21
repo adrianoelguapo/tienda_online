@@ -69,15 +69,8 @@
 
                         <div class = "d-flex justify-content-center offcanvas-icons">
 
-                            <?php
+                            <a class = "navbar-brand admin-logout" href = "logout.php">Log Out</a>
 
-                                if(isset($_SESSION['username'])) {
-                                    echo '<a class="navbar-brand" href="profile.php"><i class="bi bi-person"></i></a>';
-                                } else {
-                                    echo '<a class="navbar-brand" href="login.php"><i class="bi bi-person"></i></a>';
-                                }
-
-                            ?>
 
                         </div>
 

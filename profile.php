@@ -215,7 +215,7 @@
 
                     <div class = "modal-footer">
 
-                        <button type = "button" class = "btn btn-dark" data-bs-dismiss = "modal">Close</button>
+                        <button type = "button" class = "modal-button" data-bs-dismiss = "modal">Close</button>
 
                     </div>
 

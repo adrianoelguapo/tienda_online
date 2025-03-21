@@ -267,7 +267,7 @@
 
         </footer>
 
-        <!-- Notification Modal -->
+        <!-- Modal de Notificación -->
         <div class = "modal fade" id = "notificationModal" tabindex = "-1" aria-labelledby = "notificationModalLabel" aria-hidden = "true">
 
             <div class = "modal-dialog">
@@ -289,7 +289,7 @@
 
                     <div class = "modal-footer">
 
-                        <button type = "button" class = "btn btn-dark" data-bs-dismiss = "modal">Close</button>
+                        <button type = "button" class = "modal-button" data-bs-dismiss = "modal">Close</button>
 
                     </div>
 
@@ -298,7 +298,6 @@
             </div>
             
         </div>
-
 
         <script src = "https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src = "cart.js"></script>

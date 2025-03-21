@@ -65,7 +65,9 @@ $(document).ready(function(){
             success: function(response){
                 if(response.success){
                     showModal(response.message);
-                    location.reload();
+                    setTimeout(function(){
+                        location.reload();
+                    }, 2000);
                 } else {
                     showModal(response.error);
                 }

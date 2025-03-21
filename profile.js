@@ -1,4 +1,9 @@
 $(document).ready(function(){
+    function showModal(message) {
+        $("#notificationModal .modal-body").text(message);
+        $("#notificationModal").modal('show');
+    }
+
     $('.profile-form').submit(function(e){
         e.preventDefault();
         let formData = $(this).serialize();
@@ -19,9 +24,4 @@ $(document).ready(function(){
             }
         });
     });
-    
-    function showModal(message) {
-        $("#notificationModal .modal-body").text(message);
-        $("#notificationModal").modal('show');
-    }
 });

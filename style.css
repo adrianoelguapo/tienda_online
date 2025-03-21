@@ -119,7 +119,7 @@
 }
 
 .item-card-btn:hover{
-    background-color: #333;
+    background-color: gray;
 }
 
 .item-card-badge{
@@ -127,15 +127,6 @@
     border-radius: 0px;
     font-family: 'Raleway';
     font-weight: 500;
-}
-
-.bi-heart{
-    cursor: pointer;
-    transition: all 0.3s ease-in;
-}
-
-.bi-heart:hover{
-    transform: scale(1.2);
 }
 
 /* --- Estilos para la sección previa al pie de página --- */
@@ -329,11 +320,17 @@
 }
 
 .login-form button:hover{
-    background-color: #333;
+    background-color: gray;
 }
 
 .login-form a.text-decoration-none:hover{
     text-decoration: underline;
+}
+
+.admin-logout{
+    font-variant: small-caps;
+    font-family: "Raleway", sans-serif;
+    font-size: 0.9rem;
 }
 
 /* --- Estilos para la página de Our Story (story.html) --- */
@@ -872,7 +869,7 @@
 }
 
 /* --- Estilos para la página de stock (stock.php) --- */
-.stock-card {
+.stock-card{
     background-color: white;
     border: none;
     border-radius: 0;
@@ -880,23 +877,23 @@
     transition: transform 0.3s ease-in, box-shadow 0.3s ease;
 }
 
-.stock-card:hover {
+.stock-card:hover{
     transform: scale(1.025);
     box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.3);
 }
 
-.stock-card img {
+.stock-card img{
     width: 100%;
     height: auto;
     display: block;
     object-fit: cover;
 }
 
-.stock-card .card-body {
+.stock-card .card-body{
     padding: 1rem;
 }
 
-.stock-card .card-title {
+.stock-card .card-title{
     font-family: 'Raleway', sans-serif;
     font-size: 1rem;
     font-weight: 600;
@@ -905,28 +902,31 @@
     text-transform: uppercase;
 }
 
-.stock-card .card-text {
+.stock-card .card-text{
     font-family: 'Raleway', sans-serif;
     font-size: 0.9rem;
     color: #555;
     margin-bottom: 1rem;
 }
 
-.input-group .form-control {
+.input-group .form-control{
     border-radius: 0;
     border: 1px solid #ccc;
 }
 
-.input-group .btn {
+.input-group .btn{
     border-radius: 0;
     background-color: black;
     color: white;
     text-transform: uppercase;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease-in;
+    font-size: 0.85rem;
+    font-weight: 300;
 }
 
-.input-group .btn:hover {
-    background-color: #333;
+.input-group .btn:hover{
+    background-color: gray;
+    border: gray;
 }
 
 .stock-main-title{

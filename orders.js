@@ -1,4 +1,9 @@
 $(document).ready(function(){
+    function showModal(message) {
+        $("#notificationModal .modal-body").text(message);
+        $("#notificationModal").modal('show');
+    }
+
     $('.accept-order').click(function(){
         let orderId = $(this).data('order-id');
         $.ajax({
@@ -8,8 +13,10 @@ $(document).ready(function(){
             data: { order_id: orderId, action: 'accept' },
             success: function(response){
                 if(response.success){
-                    alert(response.message);
-                    location.reload();
+                    showModal(response.message);
+                    setTimeout(function(){
+                        location.reload();
+                    }, 2000);
                 } else {
                     alert(response.error);
                 }
@@ -29,8 +36,10 @@ $(document).ready(function(){
             data: { order_id: orderId, action: 'reject' },
             success: function(response){
                 if(response.success){
-                    alert(response.message);
-                    location.reload();
+                    showModal(response.message);
+                    setTimeout(function(){
+                        location.reload();
+                    }, 2000);
                 } else {
                     alert(response.error);
                 }
