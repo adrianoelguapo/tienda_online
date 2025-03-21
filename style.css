@@ -639,6 +639,22 @@
     border-color: gray;
 }
 
+.profile-history-button{
+    background-color: black;
+    color: white;
+    font-family: 'Raleway';
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 300;
+    border: none;
+    text-decoration: none;
+    transition: all 0.3s ease-in;
+}
+
+.profile-history-button:hover{
+    background-color: gray;
+}
+
 /* --- Estilos para la página de inspección de producto (view-product.php) --- */
 .view-product-main{
     padding-top: 2rem;
@@ -976,4 +992,62 @@
 
 #notificationModal .modal-button:hover{
     background-color: gray;
+}
+
+/* --- Estilos para las tarjetas de historial de pedidos --- */
+.order-card{
+    background-color: white;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.order-card:hover{
+    transform: scale(1.025);
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.3);
+}
+
+.order-card .card-body{
+    padding: 1rem;
+}
+
+.order-card .card-title{
+    font-family: 'the-seasons-light';
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.order-card .card-text{
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.order-products h6{
+    font-family: 'the-seasons-light';
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.order-products ul{
+    padding-left: 0;
+    list-style: none;
+}
+
+.order-products li{
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.order-history-photo{
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
 }
