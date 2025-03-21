@@ -124,7 +124,7 @@
 
                     <img src = "images/home-first-section-photo-1.webp" alt = "home-first-section-item-1" class = "home-first-section-item-img">
 
-                    <a href = "#" class = "home-first-section-item-desc text-decoration-none">Look at our Collection of Earrings</a>
+                    <a href = "http://localhost/tienda-online/products.php?filter=earrings" class = "home-first-section-item-desc text-decoration-none">Look at our Collection of Earrings</a>
 
                 </div>
 
@@ -132,7 +132,7 @@
 
                     <img src = "images/home-first-section-photo-2.jpg" alt = "home-first-section-item-2" class = "home-first-section-item-img">
 
-                    <a href = "#" class = "home-first-section-item-desc text-decoration-none">Look at our Collection of Rings</a>
+                    <a href = "http://localhost/tienda-online/products.php?filter=rings" class = "home-first-section-item-desc text-decoration-none">Look at our Collection of Rings</a>
 
                 </div>
 
@@ -140,7 +140,7 @@
 
                     <img src = "images/home-first-section-photo-3.jpg" alt = "home-first-section-item-3" class = "home-first-section-item-img">
 
-                    <a href = "#" class = "home-first-section-item-desc text-decoration-none">Look at our Collection of Necklaces</a>
+                    <a href = "http://localhost/tienda-online/products.php?filter=necklaces" class = "home-first-section-item-desc text-decoration-none">Look at our Collection of Necklaces</a>
 
                 </div>
 

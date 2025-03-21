@@ -68,7 +68,16 @@
 
                         <div class = "d-flex justify-content-center offcanvas-icons">
 
-                            <a class = "navbar-brand" href = "login.php"><i class = "bi bi-person"></i></a>
+                            <?php
+
+                                if(isset($_SESSION['username'])) {
+                                    echo '<a class="navbar-brand" href="profile.php"><i class="bi bi-person"></i></a>';
+                                } else {
+                                    echo '<a class="navbar-brand" href="login.php"><i class="bi bi-person"></i></a>';
+                                }
+
+                            ?>
+
                             <a class = "navbar-brand" href = "favs.php"><i class = "bi bi-heart"></i></a>
                             <a class = "navbar-brand" href = "cart.php"><i class = "bi bi-bag"></i></a>
 

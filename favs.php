@@ -1,8 +1,20 @@
 <?php
 
     session_start();
+    require 'vendor/autoload.php';
+
+    $loggedIn = isset($_SESSION['username']);
+
+    if ($loggedIn) {
+        $mongoClient = new MongoDB\Client("mongodb+srv://admin:123@cluster0.tz018.mongodb.net/?retryWrites=true&w=majority");
+        $db = $mongoClient->tienda_online;
+        $usersCollection = $db->users;
+        $user = $usersCollection->findOne(['username' => $_SESSION['username']]);
+        $wishlist = isset($user['wishlist']) ? $user['wishlist'] : [];
+    }
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang = "en">
@@ -69,7 +81,16 @@
 
                         <div class = "d-flex justify-content-center offcanvas-icons">
 
-                            <a class = "navbar-brand" href = "login.php"><i class = "bi bi-person"></i></a>
+                            <?php
+
+                                if(isset($_SESSION['username'])) {
+                                    echo '<a class="navbar-brand" href="profile.php"><i class="bi bi-person"></i></a>';
+                                } else {
+                                    echo '<a class="navbar-brand" href="login.php"><i class="bi bi-person"></i></a>';
+                                }
+
+                            ?>
+
                             <a class = "navbar-brand" href = "favs.php"><i class = "bi bi-heart"></i></a>
                             <a class = "navbar-brand" href = "cart.php"><i class = "bi bi-bag"></i></a>
 
@@ -86,163 +107,19 @@
         <!-- Sección principal -->
         <main class = "container-fluid favs-main py-4">
 
-            <p class = "favs-main-title text-center mb-4">Saved Items</p>
+            <?php if (!$loggedIn):?>
 
-            <div class = "container">
+                <div class = "container">
 
-                <div class = "row">
+                    <div class = "row">
 
-                    <!-- Favorito 1 -->
-                    <div class = "col-12 col-md-4 mb-4">
+                        <div class = "col-12">
 
-                        <div class = "item-card-container">
+                            <p class = "favs-main-title text-center mb-4">Saved Items</p>
 
-                            <div class = "position-relative">
-
-                                <img src = "images/earring-1.webp" alt = "Earrings" class = "item-card-img w-100">
-                                <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
+                            <p class = "text-center favs-main-subtitle text-muted">You must be logged in to add products to your wishlist.</p>
                             
-                            </div>
-
-                            <p class = "item-card-title">Earrings</p>
-                            <p class = "item-card-price">$100</p>
-
-                            <div class = "d-flex align-items-center justify-content-between">
-
-                                <a href = "#" class = "item-card-btn">View Product</a>
-                                <i class = "bi bi-heart item-card-heart fs-5"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- Favorito 2 -->
-                    <div class = "col-12 col-md-4 mb-4">
-
-                        <div class = "item-card-container">
-
-                            <div class = "position-relative">
-
-                                <img src = "images/earring-1.webp" alt = "Earrings" class = "item-card-img w-100">
-                                <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
-                            
-                            </div>
-
-                            <p class = "item-card-title">Earrings</p>
-                            <p class = "item-card-price">$100</p>
-
-                            <div class = "d-flex align-items-center justify-content-between">
-
-                                <a href = "#" class = "item-card-btn">View Product</a>
-                                <i class = "bi bi-heart item-card-heart fs-5"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- Favorito 3 -->
-                    <div class = "col-12 col-md-4 mb-4">
-
-                        <div class = "item-card-container">
-
-                            <div class = "position-relative">
-
-                                <img src = "images/earring-1.webp" alt = "Earrings" class = "item-card-img w-100">
-                                <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
-                            
-                            </div>
-
-                            <p class = "item-card-title">Earrings</p>
-                            <p class = "item-card-price">$100</p>
-
-                            <div class = "d-flex align-items-center justify-content-between">
-
-                                <a href = "#" class = "item-card-btn">View Product</a>
-                                <i class = "bi bi-heart item-card-heart fs-5"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- Favorito 4 -->
-                    <div class = "col-12 col-md-4 mb-4">
-
-                        <div class = "item-card-container">
-
-                            <div class = "position-relative">
-
-                                <img src = "images/earring-1.webp" alt = "Earrings" class = "item-card-img w-100">
-                                <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
-                            
-                            </div>
-
-                            <p class = "item-card-title">Earrings</p>
-                            <p class = "item-card-price">$100</p>
-
-                            <div class = "d-flex align-items-center justify-content-between">
-
-                                <a href = "#" class = "item-card-btn">View Product</a>
-                                <i class = "bi bi-heart item-card-heart fs-5"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- Favorito 5 -->
-                    <div class = "col-12 col-md-4 mb-4">
-
-                        <div class = "item-card-container">
-
-                            <div class = "position-relative">
-
-                                <img src = "images/earring-1.webp" alt = "Earrings" class = "item-card-img w-100">
-                                <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
-                            
-                            </div>
-
-                            <p class = "item-card-title">Earrings</p>
-                            <p class = "item-card-price">$100</p>
-
-                            <div class = "d-flex align-items-center justify-content-between">
-
-                                <a href = "#" class = "item-card-btn">View Product</a>
-                                <i class = "bi bi-heart item-card-heart fs-5"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- Favorito 6 -->
-                    <div class = "col-12 col-md-4 mb-4">
-
-                        <div class = "item-card-container">
-
-                            <div class = "position-relative">
-
-                                <img src = "images/earring-1.webp" alt = "Earrings" class = "item-card-img w-100">
-                                <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">AVAILABLE NOW</span>
-                            
-                            </div>
-
-                            <p class = "item-card-title">Earrings</p>
-                            <p class = "item-card-price">$100</p>
-
-                            <div class = "d-flex align-items-center justify-content-between">
-
-                                <a href = "#" class = "item-card-btn">View Product</a>
-                                <i class = "bi bi-heart item-card-heart fs-5"></i>
-
-                            </div>
+                            <p class = "text-center"><a href="login.php" class="btn favs-main-button">Log In</a></p>
 
                         </div>
 
@@ -250,9 +127,65 @@
 
                 </div>
 
-            </div>
+            <?php else:?>
 
-        </main>          
+                <p class = "favs-main-title text-center mb-4">Saved Items</p>
+
+                <div class = "container">
+
+                    <div class = "row">
+
+                        <?php if (count($wishlist) > 0):?>
+
+                            <?php foreach($wishlist as $product):?>
+
+                                <div class = "col-12 col-md-4 mb-4">
+
+                                    <div class = "item-card-container">
+
+                                        <div class = "position-relative">
+
+                                            <img src = "<?php echo htmlspecialchars($product['photo']);?>" alt = "<?php echo htmlspecialchars($product['name']);?>" class = "item-card-img w-100">
+
+                                            <span class = "badge bg-light text-dark border position-absolute top-0 start-0 m-2 item-card-badge">
+
+                                                <?php echo ((int)$product['stock'] > 0) ? "AVAILABLE NOW" : "NO STOCK"; ?>
+
+                                            </span>
+
+                                        </div>
+
+                                        <p class = "item-card-title"><?php echo htmlspecialchars($product['name']);?></p>
+
+                                        <p class = "item-card-price">$<?php echo htmlspecialchars($product['price']);?></p>
+
+                                        <div class = "d-flex align-items-center justify-content-between">
+
+                                            <a href = "view-product.php?id=<?php echo (string)$product['_id'];?>" class = "item-card-btn">View Product</a>
+                                            
+                                            <button class = "btn btn-outline-dark remove-from-wishlist" data-product-id = "<?php echo (string)$product['_id'];?>">Remove</button>
+                                        
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            <?php endforeach; ?>
+
+                        <?php else:?>
+
+                            <p class = "text-center favs-main-subtitle">No products in your wishlist.</p>
+
+                        <?php endif; ?>
+
+                    </div>
+
+                </div>
+
+            <?php endif; ?>
+
+        </main>         
 
         <!-- Sección previa al footer -->
         <section class = "container-fluid prefooter-section">
@@ -313,6 +246,9 @@
             </div>
 
         </footer>
+
+        <script src = "https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src = "wishlist.js"></script>
         
     </body>
 

@@ -1,14 +1,15 @@
 $(document).ready(function(){
-    $('.add-to-wishlist').click(function(){
+    $('.remove-from-wishlist').click(function(){
         let productId = $(this).data('product-id');
         $.ajax({
-            url: 'add-to-wishlist.php',
+            url: 'remove-from-wishlist.php',
             type: 'POST',
             dataType: 'json',
             data: { product_id: productId },
-            success: function(response){
+            success: function(response) {
                 if(response.success){
-                    alert('Product added to wishlist');
+                    alert('Product removed from wishlist');
+                    location.reload();
                 } else {
                     alert(response.error);
                 }
