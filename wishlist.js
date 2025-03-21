@@ -8,7 +8,6 @@ $(document).ready(function(){
             data: { product_id: productId },
             success: function(response) {
                 if(response.success){
-                    alert('Product removed from wishlist');
                     location.reload();
                 } else {
                     alert(response.error);

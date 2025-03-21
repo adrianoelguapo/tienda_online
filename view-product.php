@@ -148,7 +148,7 @@
                         <div class = "d-flex align-items-center mb-4">
 
                             <button class = "btn btn-dark me-3" <?php if((int)$product['stock'] <= 0) echo 'disabled';?>>Add to Cart</button>
-                            <button class = "btn btn-outline-dark add-to-wishlist" data-product-id = "<?php echo (string)$product['_id'];?>" <?php if((int)$product['stock'] <= 0) echo 'disabled';?>>Add to Wishlist</button>
+                            <button class = "btn btn-outline-dark add-to-wishlist" data-product-id = "<?php echo (string)$product['_id'];?>">Add to Wishlist</button>
 
                         </div>
 
