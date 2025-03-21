@@ -230,8 +230,8 @@
                         <ul class = "list-unstyled">
 
                             <li><a href = "index.php" class = "text-dark text-decoration-none">Home</a></li>
-                            <li><a href = "bio.html" class = "text-dark text-decoration-none">Products</a></li>
-                            <li><a href = "music.html" class = "text-dark text-decoration-none">Our Story</a></li>
+                            <li><a href = "products.php" class = "text-dark text-decoration-none">Products</a></li>
+                            <li><a href = "story.php" class = "text-dark text-decoration-none">Our Story</a></li>
 
                         </ul>
 

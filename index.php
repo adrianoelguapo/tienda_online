@@ -97,7 +97,7 @@
 
                 <p class = "home-main-text">Designed to the greatest extent</p>
 
-                <a href = "#"><button class = "px-3 py-1" id = "home-main-shop-btn">SHOP NOW</button></a>
+                <a href = "products.php"><button class = "px-3 py-1" id = "home-main-shop-btn">SHOP NOW</button></a>
 
             </div>
 
@@ -366,8 +366,8 @@
                         <ul class = "list-unstyled">
 
                             <li><a href = "index.php" class = "text-dark text-decoration-none">Home</a></li>
-                            <li><a href = "bio.html" class = "text-dark text-decoration-none">Products</a></li>
-                            <li><a href = "music.html" class = "text-dark text-decoration-none">Our Story</a></li>
+                            <li><a href = "products.php" class = "text-dark text-decoration-none">Products</a></li>
+                            <li><a href = "story.php" class = "text-dark text-decoration-none">Our Story</a></li>
 
                         </ul>
 
